@@ -11,6 +11,6 @@ describe('App', () => {
     it('should start the server and listen to requests', async () => {
         const response = await request(app).get('/');
 
-        expect(response.status).toBe(404); // Мы ожидаем 404, потому что это неопределенный маршрут в нашем приложении.
+        expect(response.status).toBe(404);
     });
 });

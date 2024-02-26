@@ -1,10 +1,13 @@
-require('dotenv').config();
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = require('./app');
 const mongoose = require('mongoose');
 
+const mongoURI = 'mongodb://localhost:27017/task_management_api';
+
 // connection to mongodb
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -22,4 +25,4 @@ process.on('SIGINT', async () => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server started: http://localhost:${PORT} `)
-})
+});

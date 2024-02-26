@@ -6,7 +6,6 @@ const getSingleUser = require('../controllers/users/getSingleUser');
 const updateUser = require('../controllers/users/updateUser');
 const deleteUser = require('../controllers/users/deleteUser');
 
-// Маршруты для пользователей
 router.post('/', createUser);
 router.get('/', getAllUsers);
 router.get('/:id', getSingleUser);

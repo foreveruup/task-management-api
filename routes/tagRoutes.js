@@ -6,7 +6,6 @@ const getSingleTag = require('../controllers/tags/getSingleTag');
 const updateTag = require('../controllers/tags/updateTag');
 const deleteTag = require('../controllers/tags/deleteTag');
 
-// Маршруты для тегов
 router.post('/', createTag);
 router.get('/', getAllTags);
 router.get('/:id', getSingleTag);

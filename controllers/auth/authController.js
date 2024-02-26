@@ -6,19 +6,19 @@
         try {
             const { username, password } = req.body;
 
-            // Проверка существования пользователя в базе данных
+            // if user exists
             const user = await User.findOne({ username });
             if (!user) {
                 return res.status(401).json({ message: 'Invalid username or password' });
             }
 
-            // Проверка пароля
+            // checking password
             const validPassword = await bcrypt.compare(password, user.password);
             if (!validPassword) {
                 return res.status(401).json({ message: 'Invalid username or password' });
             }
 
-            // Создание токена доступа
+            // creating assecc token
             const accessToken = jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
 
             // Отправка токена в теле ответа

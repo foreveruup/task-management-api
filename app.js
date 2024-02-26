@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/api/tasks', authenticateToken, taskRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/tags', authenticateToken, tagRoutes);
-app.use('/api/auth', authRoutes); // Используем authRoutes для маршрутов аутентификации
+app.use('/api/auth', authRoutes);
 
 // error handling
 app.use(errorHandler);
