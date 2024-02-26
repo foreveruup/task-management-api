@@ -18,10 +18,10 @@
                 return res.status(401).json({ message: 'Invalid username or password' });
             }
 
-            // creating assecc token
+            // creating access token
             const accessToken = jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
 
-            // Отправка токена в теле ответа
+        
             res.json({ accessToken });
         } catch (error) {
             console.error('Error logging in:', error);
